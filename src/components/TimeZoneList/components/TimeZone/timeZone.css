@@ -1,0 +1,17 @@
+.time-zone {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  cursor: pointer;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  white-space: nowrap;
+  color: #c8cbd0;
+}
+.time {
+  opacity: .6;
+}
