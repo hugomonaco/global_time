@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "CommonJS",
-    "lib": ["ES6"],
+    "module": "commonjs",
+    "lib": ["es6"],
     "jsx": "react",
     "allowJs": true,
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "strict": true,
+    "strict": false,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "esModuleInterop" : true,
+    "esModuleInterop": true
   },
   "paths": {
     "src*/": ["./src/*"],
