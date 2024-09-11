@@ -1,18 +1,23 @@
 import React from 'react';
-import './timeZone.css';
+import styles from './TimeZone.module.css';
 import { TimeZoneProps } from './types';
 import { useTimeZone } from './hooks';
 
-export const TimeZone: React.FC<TimeZoneProps> = ({ countryName, zoneName, gmtOffset }) => {
+export const TimeZone: React.FC<TimeZoneProps> = ({
+  onClick,
+  countryName,
+  zoneName,
+  gmtOffset,
+}) => {
   const { time } = useTimeZone({ gmtOffset });
 
   return (
-    <button className="time-zone">
-      <span className="name">
+    <button className={styles.timeZone} onClick={onClick}>
+      <span className={styles.name}>
         {countryName} - {zoneName}
       </span>
       <br />
-      <span className="time">{time}</span>
+      <span className={styles.time}>{time}</span>
     </button>
   );
 };
