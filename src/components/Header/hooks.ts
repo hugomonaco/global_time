@@ -1,15 +1,23 @@
 import React from 'react';
 import { parseDate } from 'src/utils/timeParser';
-
+import { isNil } from 'lodash';
 const INTERVAL_UPDATE = 1000;
 
-export const useHeader = ({ gmtOffset }) => {
+export const useHeader = ({ timeZone }) => {
+  const { gmtOffset } = timeZone || {};
+
   const [time, setTime] = React.useState<string>();
 
+  //default to my time zone offset if it is null
+  const offset = React.useMemo(
+    () => (!isNil(gmtOffset) ? gmtOffset : new Date().getTimezoneOffset() * -60),
+    [gmtOffset]
+  );
+
   const getDate = React.useCallback(() => {
-    const parsedDate = parseDate(gmtOffset, 'H:mm:ss');
+    const parsedDate = parseDate(offset, 'eeee, d MMMM - H:mm:ss');
     setTime(parsedDate);
-  }, [gmtOffset]);
+  }, [offset]);
 
   React.useEffect(() => {
     getDate();
@@ -19,7 +27,6 @@ export const useHeader = ({ gmtOffset }) => {
   }, [getDate]);
 
   return {
-    date: 'Martes, 10 de septiembre de 2024',
     time,
   };
 };
