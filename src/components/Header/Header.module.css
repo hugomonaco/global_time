@@ -1,8 +1,15 @@
 .header_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    z-index: 999;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #c8cbd0
+    color: #c8cbd0;
+     background:linear-gradient(to bottom, #06080f 80%, transparent);
 }
 
 .country{
